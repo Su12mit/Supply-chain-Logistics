@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <span class="navbar-title">Transport Hub</span>
+        <div class="navbar-right">
+            <i class="fas fa-bell notification-icon"></i>
+            <span>Your Company Name</span>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="sidebar-item">
+            <i class="fas fa-tachometer-alt sidebar-icon"></i>
+            <span>Dashboard</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-truck sidebar-icon"></i>
+            <span>Transport</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-box-open sidebar-icon"></i>
+            <span>Shipment</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-money-bill-wave sidebar-icon"></i>
+            <span>Payments</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-map-marker-alt sidebar-icon"></i>
+            <span>Delivery</span>
+        </div>
+        <div class="sidebar-item">
+            <i class="fas fa-cog sidebar-icon"></i>
+            <span>Settings</span>
+        </div>
+    </div>
+    <div class="dashboard-container">
+        <section id="dashboard">
+            <div class="metric-card">
+                <h2>Active Transport</h2>
+                <span class="metric-value">42</span>
+                <span class="metric-change">+12.5%</span>
+                <p>Currently on route</p>
+            </div>
+            <div class="metric-card">
+                <h2>Pending Transport</h2>
+                <span class="metric-value">18</span>
+                <span class="metric-change">+5.2%</span>
+                <p>Awaiting dispatch</p>
+            </div>
+            <div class="metric-card">
+                <h2>Delivered Today</h2>
+                <span class="metric-value">124</span>
+                <span class="metric-change">+8.3%</span>
+                <p>Successfully completed</p>
+            </div>
+
+            <div class="performance-card">
+                <p class="fonts">Delayed Shipments</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 80%; background-color: #22c55e;"></div>
+                </div>
+                <p>Total Shipments: 100</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 20%; background-color: #ef4444;"></div>
+                </div>
+                <p>Delayed Shipments: 20</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 40%; background-color: #3b82f6;"></div>
+                </div>
+                <p> Shipments on Hold: 40</p>
+            </div>
+
+            <div class="performance-card">
+                <p class="fonts">Delivery Performance</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 80%; background-color: #22c55e;"></div>
+                </div>
+                <p>On Time: 80%</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 15%; background-color: #3b82f6;"></div>
+                </div>
+                <p>Early: 15%</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 5%; background-color: #ef4444;"></div>
+                </div>
+                <p>Late: 5%</p>
+            </div>
+            <div class="utilization-card">
+                <p class="fonts">Transport Utilization</p>
+                <div class="subcard">
+                    <h3>Trucks</h3>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 80%; background-color: #28a745;"></div>
+                    </div>
+                    <p>85%</p>
+                </div>
+                <div class="subcard">
+                    <h3>Vans</h3>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 78%; background-color: #17a2b8;"></div>
+                    </div>
+                    <p>78%</p>
+                </div>
+                <div class="subcard">
+                    <h3>Cars</h3>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 62%; background-color: #ffc107;"></div>
+                    </div>
+                    <p>62%</p>
+                </div>
+                <div class="subcard">
+                    <h3>Bikes</h3>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 45%; background-color: #dc3545;"></div>
+                    </div>
+                    <p>45%</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="transport">
+            <p class="fonts">New Delivery Requests
+            <p>
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer ID</th>
+                            <th>Date</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ORD123</td>
+                            <td>CUST001</td>
+                            <td>2023-11-28</td>
+                            <td>Mumbai</td>
+                            <td class="accepted">Accepted</td>
+                            <td><a href="waybill.html">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>ORD456</td>
+                            <td>CUST002</td>
+                            <td>2023-11-29</td>
+                            <td>Delhi</td>
+                            <td class="rejected">Rejected</td>
+                            <td><a href="waybill.html">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>ORD789</td>
+                            <td>CUST003</td>
+                            <td>2023-11-30</td>
+                            <td>Bangalore</td>
+                            <td class="accepted">Accepted</td>
+                            <td><a href="waybill.html">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>ORD101</td>
+                            <td>CUST004</td>
+                            <td>2023-12-01</td>
+                            <td>Chennai</td>
+                            <td class="accepted">Accepted</td>
+                            <td><a href="waybill.html">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>ORD111</td>
+                            <td>CUST005</td>
+                            <td>2023-12-02</td>
+                            <td>Kolkata</td>
+                            <td class="rejected">Rejected</td>
+                            <td><a href="waybill.html">View Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="section-title">
+                <p class="fonts">Transport Management</p>
+                <a href="new_transport.html"><button class="add-transport-btn">Add New Transport</button></a>
+            </div>
+            <div class="search-card">
+                <div class="search-item">
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="in_transit">In Transit</option>
+                        <option value="delayed">Delayed</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="search-item">
+                    <label for="vehicleType">Vehicle Type</label>
+                    <select id="vehicleType">
+                        <option value="all">All Types</option>
+                        <option value="truck">Truck</option>
+                        <option value="van">Van</option>
+                        <option value="car">Car</option>
+                        <option value="bike">Bike</option>
+                    </select>
+                </div>
+
+                <div class="search-item">
+                    <label for="date">Date</label>
+                    <input type="date" id="date">
+                </div>
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Vehicle</th>
+                            <th>Route</th>
+                            <th>Status</th>
+                            <th>Driver</th>
+                            <th>ETA</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Truck - T001</td>
+                            <td>Mumbai to Delhi</td>
+                            <td class="status-active">Active</td>
+                            <td>John Doe</td>
+                            <td>2023-11-29 18:00</td>
+                            <td><a href="#" class="view-btn">View</a> | <a href="#" class="cancel-btn">Cancel</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Van - V002</td>
+                            <td>Chennai to Bangalore</td>
+                            <td class="status-in-transit">In Transit</td>
+                            <td>Jane Smith</td>
+                            <td>2023-11-29 23:00</td>
+                            <td><a href="#" class="view-btn">View</a> | <a href="#" class="cancel-btn">Cancel</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Car - C003</td>
+                            <td>Kolkata to Hyderabad</td>
+                            <td class="status-delayed">Delayed</td>
+                            <td>David Lee</td>
+                            <td>2023-11-30 02:00</td>
+                            <td><a href="#" class="view-btn">View</a> | <a href="#" class="cancel-btn">Cancel</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="show-more">
+                <a href="#">Show More</a>
+            </div>
+        </section>
+
+        <section id="shipment">
+            <div class="section-title">
+                <p class="fonts" style="font-size:22px;">Shipment Tracking</p>
+                <button class="add-transport-btn">New Shipment</button>
+            </div>
+            <div class="search-card">
+                <div class="search-item">
+                    <label for="status" style="margin-left:150px;">Track Shipment</label>
+                    <input type="text" name="track_shipment" Placeholder="Enter Tracking Number" class="shipment">
+                    <button class="track-btn">Track</button>
+                </div>
+
+                <div class="table-container" style="margin-left:0px;">
+                    <p class="fonts">Recent Shipments
+                    <p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tracking ID</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Last updated</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ORD123</td>
+                                <td>Mumbai</td>
+                                <td>Delhi</td>
+                                <td class="accepted">in transit</td>
+                                <td>2 hours ago</td>
+                                <td><a href="invoice.html">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>ORD456</td>
+                                <td>Banglore</td>
+                                <td>Chennai</td>
+                                <td class="rejected">pending</td>
+                                <td>4 hours ago</td>
+                                <td><a href="invoice.html">View Details</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="timeline-card">
+                    <p class="fonts">Shipment Status Timeline</p>
+                    <div class="timeline">
+                        <div class="timeline-step active">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Order Placed</span>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Order Confirmed</span>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Order Packed</span>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="step-number">4</span>
+                            <span class="step-label">Ready for Shipment</span>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="step-number">5</span>
+                            <span class="step-label">Shipped</span>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="step-number">6</span>
+                            <span class="step-label">Out for Delivery</span>
+                        </div>
+                        <div class="timeline-step">
+                            <span class="step-number">7</span>
+                            <span class="step-label">Delivered</span>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="payments">
+            <div class="section-title">
+                <p class="fonts">Payment Analytics</p>
+                <button class="add-transport-btn">Download Report</button>
+            </div>
+            <div class="payment-analytics">
+                <div class="payment-card">
+                    <h2>Total Revenue</h2>
+                    <span class="metric-value">$15,000</span>
+                    <span class="metric-change">+10%</span>
+                    <p>This Month</p>
+                </div>
+                <div class="payment-card">
+                    <h2>Pending Payments</h2>
+                    <span class="metric-value">12</span>
+                    <span class="metric-change">-20%</span>
+                    <p>Due this week</p>
+                </div>
+                <div class="payment-card">
+                    <h2>Completed Payments</h2>
+                    <span class="metric-value">28</span>
+                    <span class="metric-change">+15%</span>
+                    <p>This Month</p>
+                </div>
+                <div class="payment-card">
+                    <h2>Outstanding Balance</h2>
+                    <span class="metric-value">$500</span>
+                    <span class="metric-change">+20%</span>
+                    <p>Total: 5 overdue</p>
+                </div>
+            </div>
+            <div class="table-container" style="margin-left:20px;">
+                <p class="fonts">Recent Transactions
+                <p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>INVOICE ID</th>
+                            <th>CLIENT</th>
+                            <th>AMOUNT</th>
+                            <th>STATUS</th>
+                            <th>DUE DATE</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#INV-2023-001</td>
+                            <td>ABC Logistics</td>
+                            <td>₹45,000</td>
+                            <td class="accepted">Paid</td>
+                            <td>25 Oct 2023</td>
+                            <td><a href="pay-slip.html" class="view-btn">View </a>| <a href="#" class="download">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>#INV-2023-002</td>
+                            <td>XYZ Logistics</td>
+                            <td>₹75,000</td>
+                            <td class="rejected">pending</td>
+                            <td>30 Oct 2023</td>
+                            <td><a href="pay-slip.html" class="view-btn">View</a> | <a href="#" class="download">Download</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="view-more">
+                    <a href="#">View All</a>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section id="delivery">
+            <div class="section-title">
+                <p class="fonts" style="font-size:22px;">Delivery Monitoring</p>
+                <button class="add-transport-btn">Live Tracking</button>
+            </div>
+            <div class="delivery-analytics">
+                <div class="delivery-card">
+                    <h2>on time Deliveries</h2>
+                    <span class="metric-value">285</span>
+                    <span class="metric-change">95%</span>
+                    <p>last 24 hours</p>
+                </div>
+                <div class="payment-card">
+                    <h2>delayed deliveries</h2>
+                    <span class="metric-value">15</span>
+                    <span class="metric-change">5%</span>
+                    <p>requires Attention</p>
+                </div>
+                <div class="payment-card">
+                    <h2>Avg Delivery time</h2>
+                    <span class="metric-value">2.5 Hrs</span>
+                    <span class="metric-change">-2%</span>
+                    <p>This week</p>
+                </div>
+                <div class="payment-card">
+                    <h2>Active Deliveries</h2>
+                    <span class="metric-value">48</span>
+                    <span class="metric-change">live</span>
+                    <p>In progress</p>
+                </div>
+            </div>
+            <div class="table-container" style="margin-left:20px;">
+                <p class="fonts">live Delivery Tracking
+                <p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DELIVERY ID</th>
+                            <th>DRIVER</th>
+                            <th>LOCATION</th>
+                            <th>ETA</th>
+                            <th>STATUS</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#DEL-001</td>
+                            <td>John Doe ID: DRV-2023-001</td>
+                            <td>Malad West, Mumbai</td>
+                            <td>15 mins</td>
+                            <td class="accepted">On Time</td>
+                            <td><a href="#" class="view-btn">Track </a></td>
+                        </tr>
+                        <tr>
+                            <td>#DEL-002</td>
+                            <td>John Smith ID: DRV-2023-002</td>
+                            <td>Andheri East, Mumbai</td>
+                            <td>30 mins</td>
+                            <td class="rejected">Delayed</td>
+                            <td><a href="#" class="view-btn">View</a>Track</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="view-more">
+                    <a href="#">View All</a>
+                </div>
+            </div>
+            <div class="performance-card" style="margin-left:300px">
+                <p class="fonts">Delivery Success Rate</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 95%; background-color: #22c55e;"></div>
+                </div>
+                <p>Successfull: 95%</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 4%; background-color: #eab308;"></div>
+                </div>
+                <p>Delayed: 4%</p>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" style="width: 1%; background-color: #ef4444;"></div>
+                </div>
+                <p> Failed: 1%</p>
+            </div>
+        </section>
+
+
+        <section id="settings">
+            <div class="section-title">
+                <p class="fonts" style="font-size:22px;">Settings & Configuration</p>
+            </div>
+            <div class="settings-container">
+                <p class="fonts">Profile Settings</p>
+                <div class="profile-info">
+                    <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+                    <div>
+                        <h3>John Doe</h3>
+                        <p>john.doe@example.com</p>
+                    </div>
+                </div>
+                <div class="settings-actions">
+                    <button class="settings-btn1">Logout</button>
+                    <button class="settings-btn">Edit Profile</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

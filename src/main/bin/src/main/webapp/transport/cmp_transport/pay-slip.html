@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+        .company-address {
+            text-align: right;
+        }
+
+        .payment-receipt {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        
+      .lefty span{
+        background-color: yellow;
+        padding: 10px 100px;
+        margin-left:-355px;  
+      }
+      .pay{
+        margin-top:3%;
+        font-weight:bold;
+        font-size:22px;
+      }
+       .rity span{
+        background-color: yellow;
+        padding: 10px 100px;
+        margin-right:-355px; 
+         margin-top:-5%;
+      }
+        .invoice-info {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .payment-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .payment-status.pending {
+            color: red;
+        }
+
+        .payment-status.completed {
+            color: green;
+        }
+
+        .payment-details {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0062cc;
+        }
+
+        /* Barcode Styling (Optional) */
+        .barcode {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .barcode img {
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="your_logo.png" alt="Company Logo"> 
+                <h3>Your Company Name</h3>
+            </div>
+            <div class="company-address">
+                <p>Your Company Address</p>
+                <p>Contact: Your Phone Number</p>
+                <p>Email: your_email@example.com</p>
+            </div>
+        </header>
+
+        <div class="payment-receipt">
+            <div class="lefty"> <span></span></div><p class="pay">Payment Receipt <div class="rity"><span></span></div></p> 
+        </div>
+
+        <div class="invoice-info">
+            <div>
+                <p><strong>Invoice To:</strong></p>
+                <p><strong>Name:</strong> <span id="customerName">Customer Name</span></p>
+                <p><strong>Address:</strong> <span id="customerAddress">Customer Address</span></p>
+                <p><strong>State/UT Code:</strong> <span id="customerStateCode">State Code</span></p>
+                <p><strong>Date:</strong> <span id="paymentDate">Payment Date</span></p> 
+                <p><strong>Payment Method:</strong> <span id="paymentMethod">Payment Method</span></p> 
+            </div>
+            <div>
+                <div class="payment-status pending"> 
+                    Payment Pending
+                </div> 
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product 1</td>
+                    <td>2</td>
+                    <td>100</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td>Product 2</td>
+                    <td>5</td>
+                    <td>50</td>
+                    <td>250</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><strong>Total:</strong></td>
+                    <td><strong>531</strong></td> 
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="payment-details">
+            <h2>Payment Details</h2>
+            <p><strong>Payment Transaction Id:</strong> <span id="transactionId">Transaction ID</span></p>
+            <p><strong>Mode of Payment:</strong> <span id="paymentMode">Payment Mode</span></p>
+            <p><strong>Payment Amount:</strong> <span id="paymentAmount">Payment Amount</span></p>
+            <p><strong>Date & Time:</strong> <span id="paymentDateTime">Date & Time</span></p>
+        </div>
+
+        <div class="barcode">
+            <img src="img/barcode.png" alt="Barcode"> 
+        </div>
+
+        <button id="downloadBtn" class="btn">Download PDF</button> 
+
+    </div>
+
+    <script>
+       // Download PDF functionality
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        downloadBtn.addEventListener('click', () => {
+            // Create a temporary HTML element to hold the invoice content
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = document.querySelector('.container').innerHTML; 
+
+            // Create a new window with the invoice content
+            const win = window.open('', '', 'width=800,height=600');
+            win.document.write('<html><head><title>Invoice</title></head><body>');
+            win.document.write(tempElement.outerHTML);
+            win.document.write('</body></html>');
+
+            // Trigger the print dialog
+            win.print();
+            win.close(); 
+        });
+    </script>
+
+</body>
+</html>

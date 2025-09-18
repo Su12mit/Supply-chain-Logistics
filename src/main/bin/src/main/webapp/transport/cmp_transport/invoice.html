@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: sans-serif;
+          background-color:#e3ecfa;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+           background-color:#fff;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 100px; 
+            margin-right: 10px;
+        }
+        .date-time {
+            text-align: right;
+        }
+        .invoice-info {
+            display: flex;
+            justify-content: space-between;
+        }
+        .invoice-details {
+            width: 45%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .amount-in-words {
+            margin-top: 20px;
+            font-style: italic;
+        }
+        .payment-details {
+            margin-top: 20px;
+        }
+      .btn {
+  background-color: #007bff; /* Blue color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top:5%;
+  margin-left:40%;
+  transition: background-color 0.3s ease; 
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="your_logo.png" alt="Company Logo"> 
+                <h2>Your Company Name</h2>
+            </div>
+            <div class="date-time">
+                <p><strong>Date: </strong><span id="currentDate"></span></p>
+                <p><strong>Time:</strong> <span id="currentTime"></span></p>
+            </div>
+        </header>
+
+        <div class="invoice-info">
+            <div class="invoice-details">
+                <p><strong>Sold By:</strong></p>
+                <p>Your Company Address</p><br><br><br><br>
+                <p><strong>PAN NO: </strong>Your PAN Number</p>
+                <p><strong>GST Registration No:</strong> Your GST Registration Number</p><br><br>
+                <p><strong>Order No: </strong><span id="orderNo">Order No.</span></p> 
+                <p><strong>Order Date:</strong> <span id="orderDate">Order Date</span></p> 
+            </div>
+            <div class="invoice-details">
+                <p><strong>Billing Address:</strong></p>
+                <p>Billing Address</p>
+                <p><strong>State/UT Code: </strong>State Code</p><br><br>
+                <p><strong>Shipping Address:</strong></p>
+                <p>Shipping Address</p>
+                <p><strong>State/UT Code: </strong>State Code</p>
+                <p><strong>Place of Supply:</strong> State</p>
+                <p><strong>Place of Delivery: </strong>State</p>
+                <p><strong>INVOICE NO:</strong> <span id="invoiceNo">Invoice No.</span></p> 
+                <p><strong>Invoice Date:</strong> <span id="invoiceDate">Invoice Date</span></p> 
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sl.No</th>
+                    <th>Description</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Net Amount</th>
+                    <th>Tax Rate</th>
+                    <th>Tax Type</th>
+                    <th>Tax Amount</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Product 1</td>
+                    <td>100</td>
+                    <td>2</td>
+                    <td>200</td>
+                    <td>18%</td>
+                    <td>GST</td>
+                    <td>36</td>
+                    <td>236</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Product 2</td>
+                    <td>50</td>
+                    <td>5</td>
+                    <td>250</td>
+                    <td>18%</td>
+                    <td>GST</td>
+                    <td>45</td>
+                    <td>295</td>
+                </tr>
+                <tr>
+                    <td colspan="7"></td>
+                    <td><strong>Total:</strong></td>
+                    <td><strong>531</strong></td> 
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="amount-in-words">
+            <p>Amount in Words: Five Hundred Thirty-One Rupees Only</p>
+        </div>
+
+        <div>
+            <p>For Vouge Street:</p>
+            <p>Signature</p>
+        </div>
+
+        <div class="payment-details">
+            <h2>Payment Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Payment Transaction Id</th>
+                        <th>Date & Time</th>
+                        <th>Invoice Value</th>
+                        <th>Mode of Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1234567890</td>
+                        <td>2023-11-28 10:30:00</td>
+                        <td>531</td>
+                        <td>Online</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+ <button id="downloadBtn" class="btn">Download PDF</button> 
+
+    </div>
+
+    <script>
+        const currentDate = new Date().toLocaleDateString();
+        const currentTime = new Date().toLocaleTimeString();
+
+        document.getElementById('currentDate').textContent = currentDate;
+        document.getElementById('currentTime').textContent = currentTime;
+
+        // Download PDF functionality
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        downloadBtn.addEventListener('click', () => {
+            // Create a temporary HTML element to hold the invoice content
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = document.querySelector('.container').innerHTML; 
+
+            // Create a new window with the invoice content
+            const win = window.open('', '', 'width=800,height=600');
+            win.document.write('<html><head><title>Invoice</title></head><body>');
+            win.document.write(tempElement.outerHTML);
+            win.document.write('</body></html>');
+
+            // Trigger the print dialog
+            win.print();
+            win.close(); 
+        });
+    </script>
+</body>
+</html>
